@@ -25,7 +25,7 @@ resource "aws_rds_cluster" "aurora" {
   cluster_identifier      = "app-aurora-cluster"
   engine                  = "aurora-postgresql"
   engine_mode             = "provisioned" # V2 uses provisioned mode with serverless instances
-  engine_version          = "15.4"
+  engine_version          = "17.4"
   database_name           = "myappdb"
   master_username         = "dbadmin"
   master_password         = random_password.master.result
@@ -39,7 +39,7 @@ resource "aws_rds_cluster" "aurora" {
 
   serverlessv2_scaling_configuration {
     max_capacity = 2.0
-    min_capacity = 0.5
+    min_capacity = 0.0
   }
 }
 

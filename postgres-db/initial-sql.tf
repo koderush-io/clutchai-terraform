@@ -1,3 +1,6 @@
+# Temporarily disabled - database is VPC-restricted and requires connection from within VPC
+# Uncomment and run from within VPC or via VPN
+/*
 resource "null_resource" "db_setup" {
   # This runs after the DB is fully created and available
   depends_on = [aws_rds_cluster_instance.aurora_instances]
@@ -16,3 +19,5 @@ resource "null_resource" "db_setup" {
     script_hash = filebase64sha256("${path.module}/sql/init.sql")
   }
 }
+*/
+
