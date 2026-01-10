@@ -48,4 +48,5 @@ resource "aws_rds_cluster_instance" "aurora_instances" {
   instance_class     = "db.serverless"
   engine             = aws_rds_cluster.aurora.engine
   engine_version     = aws_rds_cluster.aurora.engine_version
+  # Keep private - no public access
 }
