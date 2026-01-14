@@ -1,7 +1,12 @@
 # Database Connection Information
 output "database_endpoint" {
-  description = "Aurora PostgreSQL cluster endpoint"
+  description = "Aurora PostgreSQL cluster endpoint (writer)"
   value       = aws_rds_cluster.aurora.endpoint
+}
+
+output "database_reader_endpoint" {
+  description = "Aurora PostgreSQL reader endpoint (read-only)"
+  value       = aws_rds_cluster.aurora.reader_endpoint
 }
 
 output "database_port" {

@@ -29,10 +29,13 @@ resource "aws_rds_cluster" "aurora" {
   database_name           = "myappdb"
   master_username         = "dbadmin"
   master_password         = random_password.master.result
-  
+
   # Enable IAM Database Authentication
   iam_database_authentication_enabled = true
-  
+
+  # Enable Data API for Query Editor access
+  enable_http_endpoint = true
+
   db_subnet_group_name    = module.vpc.database_subnet_group
   vpc_security_group_ids  = [aws_security_group.rds_sg.id]
   skip_final_snapshot     = true
